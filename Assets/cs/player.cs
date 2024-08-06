@@ -12,10 +12,13 @@ public class player : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         // 计算移动方向
-        Vector3 movement = new Vector3(horizontal, 0.0f, vertical) * speed * Time.deltaTime;
+        Vector3 movement = new Vector3(horizontal, vertical, 0.0f) * speed * Time.deltaTime;
 
-        // 应用移动
-        transform.Translate(movement);
+        // 当有输入时才应用移动
+        if (horizontal != 0 || vertical != 0)
+        {
+            transform.Translate(movement);
+        }
     }
 
 }
