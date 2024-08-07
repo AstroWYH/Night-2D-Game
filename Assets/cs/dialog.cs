@@ -21,9 +21,9 @@ public class dialog : MonoBehaviour
 
         dialogueMessages = new string[]
         {
-            "和尚：天地不仁...",
-            "和尚：咳咳，小施主，你可知下一句？",
-            "和尚：诛仙世界，启动！"
+            "小和尚：天地不仁...",
+            "小和尚：咳咳，小施主，你可知下一句？",
+            "小和尚：诛仙世界，启动！"
         };
 
         dialogueBox.SetActive(false);
