@@ -20,8 +20,8 @@ public class camera : MonoBehaviour
         }
 
         cam = Camera.main;
-        camHeight = 2f * cam.orthographicSize;
-        camWidth = camHeight * cam.aspect;
+        //camHeight = 2f * cam.orthographicSize;
+        //camWidth = camHeight * cam.aspect;
     }
 
     void LateUpdate()
@@ -33,26 +33,18 @@ public class camera : MonoBehaviour
             //Debug.Log("viewPos:x: " + viewPos.x + "viewPos:y: " + viewPos.y);
 
             // 仅在接近屏幕边缘时移动相机
-            if (viewPos.x > 1 - offset.x)
-            {
-                desiredPosition.x = target.position.x;
-            }
-            else if (viewPos.x < offset.x)
+            if (viewPos.x > 1 - offset.x || viewPos.x < offset.x)
             {
                 desiredPosition.x = target.position.x;
             }
 
-            if (viewPos.y > 1 - offset.y)
-            {
-                desiredPosition.y = target.position.y;
-            }
-            else if (viewPos.y < offset.y)
+            if (viewPos.y > 1 - offset.y || viewPos.y < offset.y)
             {
                 desiredPosition.y = target.position.y;
             }
 
             // 使用插值平滑移动相机
-            // 突然理解了这段代码，解决相机问题靠的是巧合...注意desiredPosition的赋值即可
+            // 不能在边缘突然将desiredPosition赋值为角色位置，否则相机会突然从中间跳到角色处，造成场景瞬移，且此时角色就不在offset内了
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
             transform.position = new Vector3(smoothedPosition.x, smoothedPosition.y, -10);
         }
