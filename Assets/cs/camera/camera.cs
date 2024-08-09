@@ -9,8 +9,8 @@ public class camera : MonoBehaviour
     public Vector2 offset = new Vector2(0.2f, 0.2f); // ±ßÔµ¼ì²âµÄÆ«ÒÆÁ¿
 
     private Camera cam;
-    private float camHeight;
-    private float camWidth;
+    //private float camHeight;
+    //private float camWidth;
 
     void Start()
     {

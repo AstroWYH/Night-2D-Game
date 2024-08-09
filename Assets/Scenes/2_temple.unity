@@ -5096,6 +5096,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52602f5f9d551e04bbb3532d606f6579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueMessages:
+  - "\u5C0F\u548C\u5C1A\uFF1A\u5929\u5730\u4E0D\u4EC1..."
+  - "\u5C0F\u548C\u5C1A\uFF1A\u54B3\u54B3\uFF0C\u5C0F\u65BD\u4E3B\uFF0C\u4F60\u53EF\u77E5\u4E0B\u4E00\u53E5\uFF1F"
+  - "\u5C0F\u548C\u5C1A\uFF1A\u8BDB\u4ED9\u4E16\u754C\uFF0C\u542F\u52A8\uFF01"
 --- !u!1 &888587457
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class dialog : MonoBehaviour
 {
     private GameObject dialogueBox; // 对话框的 GameObject
     private Text dialogueText; // 对话框中的 Text 组件
-    private string[] dialogueMessages; // 对话框显示的消息数组
+    public string[] dialogueMessages; // 对话框显示的消息数组
 
     private bool playerInRange = false;
     private bool dialogueStarted = false;
@@ -18,15 +18,6 @@ public class dialog : MonoBehaviour
     {
         dialogueBox = GameObject.Find("dialogbox");
         dialogueText = GameObject.Find("dialogtext").GetComponent<Text>();
-
-        dialogueMessages = new string[]
-        {
-            "小和尚：天地不仁...",
-            "小和尚：咳咳，小施主，你可知下一句？",
-            "小和尚：诛仙世界，启动！"
-        };
-
-        dialogueBox.SetActive(false);
     }
 
     void Update()

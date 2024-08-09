@@ -9,36 +9,45 @@ public class player : MonoBehaviour
     private float inputX;
     private float inputY;
     private Vector2 movementInput;
+    public bool inputDisable = false;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // 通过transform移动（有点不跟手）
-    //void Update()
-    //{
-    //    float horizontal = Input.GetAxis("Horizontal");
-    //    float vertical = Input.GetAxis("Vertical");
+    private void OnEnable()
+    {
+        eventhandler.BeforeSceneUnloadEvent += OnBeforeSceneUnloadEvent;
+        eventhandler.AfterSceneLoadedEvent += OnAfterSceneLoadedEvent;
+        eventhandler.MoveToPosition += OnMoveToPosition;
+    }
 
-    //    // 计算移动方向
-    //    Vector3 movement = new Vector3(horizontal, vertical, 0.0f) * speed * Time.deltaTime;
+    private void OnMoveToPosition(Vector3 targetPosition)
+    {
+        transform.position = targetPosition;
+    }
 
-    //    // 当有输入时才应用移动
-    //    if (horizontal != 0 || vertical != 0)
-    //    {
-    //        transform.Translate(movement);
-    //    }
-    //}
+    private void OnBeforeSceneUnloadEvent()
+    {
+        inputDisable = true;//player不可控
+    }
+
+    private void OnAfterSceneLoadedEvent()
+    {
+        inputDisable = false;
+    }
 
     private void Update()
     {
-        PlayerInput();
+        if (!inputDisable)
+            PlayerInput();
     }
 
     private void FixedUpdate()
     {
-        Movement();
+        if (!inputDisable)
+            Movement();
     }
 
     private void PlayerInput()
@@ -61,4 +70,19 @@ public class player : MonoBehaviour
         rb.MovePosition(rb.position + movementInput * speed * Time.deltaTime);
     }
 
+    // 通过transform移动（会有点不跟手）
+    //void Update()
+    //{
+    //    float horizontal = Input.GetAxis("Horizontal");
+    //    float vertical = Input.GetAxis("Vertical");
+
+    //    // 计算移动方向
+    //    Vector3 movement = new Vector3(horizontal, vertical, 0.0f) * speed * Time.deltaTime;
+
+    //    // 当有输入时才应用移动
+    //    if (horizontal != 0 || vertical != 0)
+    //    {
+    //        transform.Translate(movement);
+    //    }
+    //}
 }
