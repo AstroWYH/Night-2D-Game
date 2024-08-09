@@ -477,6 +477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 887120096}
   - component: {fileID: 887120097}
+  - component: {fileID: 887120098}
   m_Layer: 0
   m_Name: yob
   m_TagString: Untagged
@@ -551,6 +552,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &887120098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887120095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52602f5f9d551e04bbb3532d606f6579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueMessages:
+  - "\u79BB\u8FDC\u70B9\uFF0C\u522B\u59A8\u788D\u6211\u6253\u6E38\u620F"
 --- !u!1 &1193372612
 GameObject:
   m_ObjectHideFlags: 0
